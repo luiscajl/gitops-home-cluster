@@ -1,0 +1,23 @@
+global:
+  aws:
+    accessKeyId: awdawd
+    secretAccessKey: awdawd
+  okta:
+    issuer: awd
+    clientId: awd
+    clientSecret:  awd
+    frontendClientId: awd
+  url:
+    backend: awd
+  transmission:
+    host: awd
+    port: awd
+    user: awda
+    password: awd
+    urlRpc: awd
+automated-download-shows:
+  image:
+    tag: "sha-3d43185"     
+# mongodb:
+  # podSecurityContext:
+    # fsGroup: 1002    
