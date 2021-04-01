@@ -59,14 +59,14 @@ spec:
             - name: SPRING_DATA_MONGODB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: mongodb
+                  name: lavanda-mongodb
                   key: mongodb-root-password     
             - name: SPRING_RABBITMQ_USERNAME
               value: user
             - name: SPRING_RABBITMQ_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: rabbitmq
+                  name: lavanda-rabbitmq
                   key: rabbitmq-password              
           livenessProbe:
             httpGet:
