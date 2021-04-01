@@ -48,7 +48,7 @@ spec:
               port: 9091
               httpHeaders: 
                 - name: Authorization
-                  value: Basic {{{{ .Values.global.transmission.user }}:{{ .Values.global.transmission.user }} | b64enc }}
+                  value: Basic {{ '.Values.global.transmission.user':'.Values.global.transmission.user' | b64enc }}
               scheme: HTTP
             initialDelaySeconds: 12
             periodSeconds: 60
@@ -60,7 +60,7 @@ spec:
               port: 9091
               httpHeaders: 
                 - name: Authorization
-                  value: Basic {{{{ .Values.global.transmission.user }}:{{ .Values.global.transmission.user }} | b64enc }}
+                  value: Basic {{ .Values.global.transmission.user:.Values.global.transmission.user | b64enc }}
               scheme: HTTP
             initialDelaySeconds: 10
             timeoutSeconds: 5
