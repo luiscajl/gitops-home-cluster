@@ -2,11 +2,9 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: transmission-config
-  namespace: lavanda
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 1Gi
-  volumeName: lavanda-transmission-config-pv
