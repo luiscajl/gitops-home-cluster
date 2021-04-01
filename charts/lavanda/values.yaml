@@ -17,7 +17,7 @@ global:
     urlRpc: awd
 automated-download-shows:
   image:
-    tag: "0.0.1"     
+    tag: "sha-3d43185"     
 frontend-ng:
   image:
     tag: "sha-d3145d5"  
