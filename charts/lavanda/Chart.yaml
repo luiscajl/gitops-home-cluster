@@ -1,6 +1,6 @@
 apiVersion: v2
 name: lavanda
-description: A Helm chart for Kubernetes
+description: Helm chart for lavanda kubernetes cluster
 type: application
 version: 0.0.1
 dependencies:
