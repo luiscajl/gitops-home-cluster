@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: lavandadelpatio/frontend-ng
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: "sha-d3145d5"    
 
 imagePullSecrets: []
 nameOverride: ""

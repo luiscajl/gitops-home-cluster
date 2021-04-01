@@ -18,6 +18,9 @@ global:
 automated-download-shows:
   image:
     tag: "sha-3d43185"     
+frontend-ng:
+  image:
+    tag: "sha-d3145d5"    
 # mongodb:
   # podSecurityContext:
     # fsGroup: 1002    
