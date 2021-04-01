@@ -38,8 +38,8 @@ spec:
               containerPort: 9091
               protocol: TCP
           volumeMounts:
-            - mountPath: /downloads
-              name: transmission-downloads-volume
+            # - mountPath: /downloads
+            #   name: transmission-downloads-volume
             - mountPath: /config
               name: transmission-config-volume
           env:
@@ -56,9 +56,9 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
-        - name: transmission-downloads-volume
-          persistentVolumeClaim:
-            claimName: transmission-downloads
+        # - name: transmission-downloads-volume
+        #   persistentVolumeClaim:
+        #     claimName: transmission-downloads
         - name: transmission-config-volume
           persistentVolumeClaim:
             claimName: transmission-config      

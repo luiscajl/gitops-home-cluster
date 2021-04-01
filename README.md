@@ -1,1 +1,1 @@
-# gitops-home-cluster
+# gitops-home-cluster [![Helm chart - CI](https://github.com/luiscajl/gitops-home-cluster/actions/workflows/lavanda-helm-chart-release.yaml/badge.svg?branch=master)](https://github.com/luiscajl/gitops-home-cluster/actions/workflows/lavanda-helm-chart-release.yaml)

@@ -39,11 +39,11 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          volumeMounts:
-            - mountPath: /downloads
-              name: transmission-downloads-volume
-            - mountPath: /downloaded
-              name: transmission-downloaded-volume
+          # volumeMounts:
+          #   - mountPath: /downloads
+          #     name: transmission-downloads-volume
+          #   - mountPath: /downloaded
+          #     name: transmission-downloaded-volume
           env:
             - name: TRANSMISSION_HOST
               value: {{  required "A valid .Values.global.transmission.host entry required!" .Values.global.transmission.host  }} 
@@ -57,13 +57,13 @@ spec:
               value: {{  required "A valid .Values.global.transmission.urlRpc entry required!" .Values.global.transmission.urlRpc }} 
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-      volumes:
-        - name: transmission-downloads-volume
-          persistentVolumeClaim:
-            claimName: lavanda-files-downloads
-        - name: transmission-downloaded-volume
-          persistentVolumeClaim:
-            claimName: lavanda-files-downloaded         
+      # volumes:
+      #   - name: transmission-downloads-volume
+      #     persistentVolumeClaim:
+      #       claimName: lavanda-files-downloads
+      #   - name: transmission-downloaded-volume
+      #     persistentVolumeClaim:
+      #       claimName: lavanda-files-downloaded         
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
