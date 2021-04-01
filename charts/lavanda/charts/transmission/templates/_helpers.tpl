@@ -27,9 +27,9 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-# {{- define "transmission.chart" -}}
-# {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-# {{- end }}
+{{- define "transmission.chart" -}}
+{{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- end }}
 
 {{/*
 Common labels
@@ -37,9 +37,9 @@ Common labels
 {{- define "transmission.labels" -}}
 helm.sh/chart: {{ include "transmission.chart" . }}
 {{ include "transmission.selectorLabels" . }}
-# {{- if .Chart.AppVersion }}
-# app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
-# {{- end }}
+{{- if .Chart.AppVersion }}
+app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+{{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 

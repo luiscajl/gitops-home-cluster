@@ -52,18 +52,16 @@ spec:
             - name: USER
               value: {{  required "A valid .Values.global.transmission.user entry required!"  .Values.global.transmission.user }} 
             - name: PASS
-              value: {{  required "A valid .Values.global.transmission.password entry required!"  .Values.global.transmission.password }} 
+              value: {{  required "A valid .Values.global.transmission.password entry required!"  .Values.global.transmission.password }}    
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
         - name: transmission-downloads-volume
-          # persistentVolumeClaim:
-            # claimName: transmission-downloads
+          persistentVolumeClaim:
+            claimName: transmission-downloads
         - name: transmission-config-volume
-          size: "2Gi"
-
-          # persistentVolumeClaim:
-            # claimName: transmission-config      
+          persistentVolumeClaim:
+            claimName: transmission-config      
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
