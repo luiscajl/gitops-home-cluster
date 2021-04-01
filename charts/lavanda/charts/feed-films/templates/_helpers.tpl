@@ -2,7 +2,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "lavanda-feed-films.name" -}}
+{{- define "feed-films.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -11,7 +11,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "lavanda-feed-films.fullname" -}}
+{{- define "feed-films.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -27,16 +27,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "lavanda-feed-films.chart" -}}
+{{- define "feed-films.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "lavanda-feed-films.labels" -}}
-helm.sh/chart: {{ include "lavanda-feed-films.chart" . }}
-{{ include "lavanda-feed-films.selectorLabels" . }}
+{{- define "feed-films.labels" -}}
+helm.sh/chart: {{ include "feed-films.chart" . }}
+{{ include "feed-films.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -46,17 +46,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "lavanda-feed-films.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "lavanda-feed-films.name" . }}
+{{- define "feed-films.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "feed-films.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "lavanda-feed-films.serviceAccountName" -}}
+{{- define "feed-films.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "lavanda-feed-films.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "feed-films.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

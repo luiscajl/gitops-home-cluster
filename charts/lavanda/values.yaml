@@ -20,7 +20,10 @@ automated-download-shows:
     tag: "sha-3d43185"     
 frontend-ng:
   image:
-    tag: "sha-d3145d5"    
+    tag: "sha-d3145d5"  
+feed-films:
+  image:
+    tag: "0.0.1"      
 # mongodb:
   # podSecurityContext:
     # fsGroup: 1002    

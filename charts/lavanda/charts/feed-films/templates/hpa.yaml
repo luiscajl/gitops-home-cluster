@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "lavanda-tmdb.fullname" . }}
+  name: {{ include "feed-films.fullname" . }}
   labels:
-    {{- include "lavanda-tmdb.labels" . | nindent 4 }}
+    {{- include "feed-films.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "lavanda-tmdb.fullname" . }}
+    name: {{ include "feed-films.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:

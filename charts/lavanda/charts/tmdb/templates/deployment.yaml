@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "lavanda-tmdb.fullname" . }}
+  name: {{ include "tmdb.fullname" . }}
   labels:
-    {{- include "lavanda-tmdb.labels" . | nindent 4 }}
+    {{- include "tmdb.labels" . | nindent 4 }}
 spec:
 {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
 {{- end }}
   selector:
     matchLabels:
-      {{- include "lavanda-tmdb.selectorLabels" . | nindent 6 }}
+      {{- include "tmdb.selectorLabels" . | nindent 6 }}
   template:
     metadata:
     {{- with .Values.podAnnotations }}
@@ -18,13 +18,13 @@ spec:
         {{- toYaml . | nindent 8 }}
     {{- end }}
       labels:
-        {{- include "lavanda-tmdb.selectorLabels" . | nindent 8 }}
+        {{- include "tmdb.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "lavanda-tmdb.serviceAccountName" . }}
+      serviceAccountName: {{ include "tmdb.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
