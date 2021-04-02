@@ -37,16 +37,33 @@ spec:
             - name: http
               containerPort: 32400
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
+                # -v /path/to/library:/config \
+                # -v /path/to/tvseries:/tv \
+                # -v /path/to/movies:/movies \
+          volumeMounts:
+            - mountPath: /config
+              name: plex-config-volume
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: VERSION
+              value: "docker"      
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: plex-config-volume
+          persistentVolumeClaim:
+            claimName: plex-config        
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
