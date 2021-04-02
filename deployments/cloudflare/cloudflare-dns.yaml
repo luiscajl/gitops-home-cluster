@@ -20,8 +20,10 @@ spec:
           image: oznu/cloudflare-ddns
           env:
             - name: API_KEY
-              secret:
-                secretName: apikey
+              valueFrom:
+                secretKeyRef:
+                  name: apikey
+                  key: secret
             - name: ZONE
               value: lavandadelpatio.es
             - name: CRON
