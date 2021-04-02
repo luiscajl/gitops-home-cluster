@@ -25,7 +25,9 @@ feed-films:
   image:
     tag: "0.0.1"     
 rabbitmq:
-  replicaCount: 2     
+  replicaCount: 2   
+  nodeSelector: 
+    cputype: amd64  
 # mongodb:
   # podSecurityContext:
     # fsGroup: 1002    
