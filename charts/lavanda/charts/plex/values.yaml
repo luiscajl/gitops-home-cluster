@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: linuxserver/plex
   pullPolicy: IfNotPresent
-  tag: ""
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
