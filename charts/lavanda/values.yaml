@@ -23,7 +23,9 @@ frontend-ng:
     tag: "sha-d3145d5"  
 feed-films:
   image:
-    tag: "0.0.1"      
+    tag: "0.0.1"     
+rabbitmq:
+  replicaCount: 2     
 # mongodb:
   # podSecurityContext:
     # fsGroup: 1002    
