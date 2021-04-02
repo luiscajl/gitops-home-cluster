@@ -7,8 +7,7 @@ replicaCount: 1
 image:
   repository: linuxserver/transmission
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "version-3.00-r2"
 
 imagePullSecrets: []
 nameOverride: ""
