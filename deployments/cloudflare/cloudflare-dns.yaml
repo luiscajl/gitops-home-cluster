@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudflare-dns
+  namespace: cloudflare
+  labels:
+    app: cloudflare-dns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudflare-dns
+  template:
+    metadata:
+      labels:
+        app: cloudflare-dns
+    spec:
+      containers:
+        - name: cloudflare-dns
+          image: oznu/cloudflare-ddns
+          env:
+            - name: API_KEY
+              secret:
+                secretName: apikey
+            - name: ZONE
+              value: lavandadelpatio.es
+            - name: CRON
+              value: "*/2 * * * *"
+            - name: PROXIED
+              value: "true"
