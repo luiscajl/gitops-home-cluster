@@ -2,6 +2,22 @@ apiVersion: v1
 entries:
   lavanda:
   - apiVersion: v2
+    created: "2021-04-02T20:56:05.081839794Z"
+    dependencies:
+    - name: mongodb
+      repository: https://charts.bitnami.com/bitnami/
+      version: 10.11.1
+    - name: rabbitmq
+      repository: https://charts.bitnami.com/bitnami/
+      version: 8.11.5
+    description: Helm chart for lavanda kubernetes cluster
+    digest: 77b5261ec1087c8614bc27d18cdd6db828e5ee219dcd7e1ca0634c8283ea2ed2
+    name: lavanda
+    type: application
+    urls:
+    - https://github.com/luiscajl/gitops-home-cluster/releases/download/lavanda-0.0.22/lavanda-0.0.22.tgz
+    version: 0.0.22
+  - apiVersion: v2
     created: "2021-04-02T20:50:51.537428779Z"
     dependencies:
     - name: mongodb
@@ -332,4 +348,4 @@ entries:
     urls:
     - https://github.com/luiscajl/gitops-home-cluster/releases/download/lavanda-0.0.2/lavanda-0.0.2.tgz
     version: 0.0.2
-generated: "2021-04-02T20:50:51.53757729Z"
+generated: "2021-04-02T20:56:05.081984295Z"
