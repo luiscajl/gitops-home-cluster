@@ -67,7 +67,9 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: lavanda-rabbitmq
-                  key: rabbitmq-password              
+                  key: rabbitmq-password    
+            - name: SPRING_RABBITMQ_HOST
+              value: lavanda-rabbitmq                  
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness

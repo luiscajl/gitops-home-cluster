@@ -28,6 +28,5 @@ rabbitmq:
   replicaCount: 2   
   nodeSelector: 
     cputype: amd64  
-# mongodb:
-  # podSecurityContext:
-    # fsGroup: 1002    
+mongodb:
+  architecture: "replicaset"
