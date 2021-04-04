@@ -44,7 +44,7 @@ spec:
             - mountPath: /config
               name: plex-config-volume
             - mountPath: /data
-              name: plex-emptydir  
+              name: plex-empty-dir  
           env:
             - name: PUID
               value: "1000"
