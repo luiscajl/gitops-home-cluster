@@ -43,6 +43,8 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: plex-config-volume
+            - mountPath: /data
+              name: plex-emptydir  
           env:
             - name: PUID
               value: "1000"
@@ -63,7 +65,9 @@ spec:
       volumes:
         - name: plex-config-volume
           persistentVolumeClaim:
-            claimName: plex-config        
+            claimName: plex-config    
+        - name: plex-empty-dir
+          emptydir: {}        
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
