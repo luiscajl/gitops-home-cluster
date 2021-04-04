@@ -60,7 +60,9 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: lavanda-mongodb
-                  key: mongodb-root-password     
+                  key: mongodb-root-password 
+            - name: SPRING_DATA_MONGODB_HOST
+              value: lavanda-mongodb
             - name: SPRING_RABBITMQ_USERNAME
               value: user
             - name: SPRING_RABBITMQ_PASSWORD
