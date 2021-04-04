@@ -67,7 +67,7 @@ spec:
           persistentVolumeClaim:
             claimName: plex-config    
         - name: plex-empty-dir
-          emptydir: {}        
+          emptyDir: {}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
