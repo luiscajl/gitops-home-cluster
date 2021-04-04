@@ -74,39 +74,37 @@ spec:
       volumes:
         - name: plex-config-volume
           persistentVolumeClaim:
-            claimName: plex-config    
-        # - name: plex-empty-dir
-        #   emptyDir: {}
+            claimName: plex-config
         - name: plex-media-1volume
-            glusterfs:
-              endpoints: glusterfs-cluster
-              path: 4TB_1
-              readOnly: false
+          glusterfs:
+            endpoints: glusterfs-cluster
+            path: 4TB_1
+            readOnly: false
         - name: plex-media-2volume
-            glusterfs:
-              endpoints: glusterfs-cluster
-              path: 4TB_2
-              readOnly: false
+          glusterfs:
+            endpoints: glusterfs-cluster
+            path: 4TB_2
+            readOnly: false
         - name: plex-media-3volume
-            glusterfs:
-              endpoints: glusterfs-cluster
-              path: 4TB_3
-              readOnly: false
+          glusterfs:
+            endpoints: glusterfs-cluster
+            path: 4TB_3
+            readOnly: false
         - name: plex-media-4volume
-            glusterfs:
-              endpoints: glusterfs-cluster
-              path: 4TB_4
-              readOnly: false
+          glusterfs:
+            endpoints: glusterfs-cluster
+            path: 4TB_4
+            readOnly: false
         - name: plex-media-5volume
-            glusterfs:
-              endpoints: glusterfs-cluster
-              path: Externo8TB_1
-              readOnly: false
+          glusterfs:
+            endpoints: glusterfs-cluster
+            path: Externo8TB_1
+            readOnly: false
         - name: plex-media-6volume
-            glusterfs:
-              endpoints: glusterfs-cluster
-              path: Externo8TB_2
-              readOnly: false                               
+          glusterfs:
+            endpoints: glusterfs-cluster
+            path: Externo8TB_2
+            readOnly: false                               
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
