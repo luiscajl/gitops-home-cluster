@@ -37,14 +37,23 @@ spec:
             - name: http
               containerPort: 32400
               protocol: TCP
-                # -v /path/to/library:/config \
-                # -v /path/to/tvseries:/tv \
-                # -v /path/to/movies:/movies \
           volumeMounts:
             - mountPath: /config
               name: plex-config-volume
-            - mountPath: /data
-              name: plex-empty-dir  
+            # - mountPath: /data
+              # name: plex-empty-dir  
+            - mountPath: /media/4TB_1
+              name: plex-media-1volume  
+            - mountPath: /media/4TB_2
+              name: plex-media-2volume  
+            - mountPath: /media/4TB_3
+              name: plex-media-3volume 
+            - mountPath: /media/4TB_4
+              name: plex-media-4volume
+            - mountPath: /media/Externo8TB_1
+              name: plex-media-5volume  
+            - mountPath: /media/Externo8TB_2
+              name: plex-media-6volume               
           env:
             - name: PUID
               value: "1000"
@@ -68,6 +77,36 @@ spec:
             claimName: plex-config    
         - name: plex-empty-dir
           emptyDir: {}
+        - name: plex-media-1volume
+            glusterfs:
+              endpoints: glusterfs-cluster
+              path: 4TB_1
+              readOnly: false
+        - name: plex-media-2volume
+            glusterfs:
+              endpoints: glusterfs-cluster
+              path: 4TB_2
+              readOnly: false
+        - name: plex-media-3volume
+            glusterfs:
+              endpoints: glusterfs-cluster
+              path: 4TB_3
+              readOnly: false
+        - name: plex-media-4volume
+            glusterfs:
+              endpoints: glusterfs-cluster
+              path: 4TB_4
+              readOnly: false
+        - name: plex-media-5volume
+            glusterfs:
+              endpoints: glusterfs-cluster
+              path: Externo8TB_1
+              readOnly: false
+        - name: plex-media-6volume
+            glusterfs:
+              endpoints: glusterfs-cluster
+              path: Externo8TB_2
+              readOnly: false                               
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
