@@ -17,7 +17,13 @@ global:
     urlRpc: awd
 automated-download-shows:
   image:
-    tag: "0.0.1"     
+    tag: "0.0.1"  
+# automated-download-shows:
+#   image:
+#     tag: "master"
+tmdb:
+  image:
+    tag: "master"             
 frontend-ng:
   image:
     tag: "sha-d3145d5"  
