@@ -1,8 +1,9 @@
-name: Lavanda Chart deploy
+name: Plex Chart deploy
+
 on:
   push:
     paths:
-      - "charts/lavanda/Chart.yaml"
+      - "charts/plex/Chart.yaml"
     branches:
       - master
 jobs:
@@ -22,9 +23,6 @@ jobs:
         uses: azure/setup-helm@v1
         with:
           version: v3.4.0
-      - name: Add bitnami repo
-        run: |
-          helm repo add bitnami https://charts.bitnami.com/bitnami/
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.2.0
         env:
