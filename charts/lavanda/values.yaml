@@ -30,3 +30,5 @@ rabbitmq:
     cputype: amd64  
 mongodb:
   architecture: "replicaset"
+  nodeSelector: 
+    cputype: amd64 
