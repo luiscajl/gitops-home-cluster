@@ -2,12 +2,4 @@ apiVersion: v2
 name: lavanda
 description: Helm chart for lavanda kubernetes cluster
 type: application
-version: 0.0.28
-dependencies:
-   - name: mongodb
-     version: 10.11.1
-     repository: https://charts.bitnami.com/bitnami/
-   - name: rabbitmq
-     version: 8.11.5
-     repository: https://charts.bitnami.com/bitnami/
-      
+version: 0.0.29
