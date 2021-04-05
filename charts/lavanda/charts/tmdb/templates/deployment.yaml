@@ -39,10 +39,10 @@ spec:
             - name: SPRING_RABBITMQ_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: lavanda-rabbitmq
+                  name: rabbitmq
                   key: rabbitmq-password  
             - name: SPRING_RABBITMQ_HOST
-              value: lavanda-rabbitmq                
+              value: rabbitmq                
           ports:
             - name: http
               containerPort: 8080
