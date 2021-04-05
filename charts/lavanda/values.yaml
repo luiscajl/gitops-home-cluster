@@ -18,9 +18,6 @@ global:
 automated-download-shows:
   image:
     tag: "0.0.1"  
-# automated-download-shows:
-#   image:
-#     tag: "master"
 tmdb:
   image:
     tag: "master"             
@@ -30,11 +27,4 @@ frontend-ng:
 feed-films:
   image:
     tag: "0.0.1"     
-rabbitmq:
-  replicaCount: 2   
-  nodeSelector: 
-    cputype: amd64  
-mongodb:
-  architecture: "replicaset"
-  nodeSelector: 
-    cputype: amd64 
+
