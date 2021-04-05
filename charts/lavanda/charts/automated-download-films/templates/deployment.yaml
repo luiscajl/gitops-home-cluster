@@ -59,19 +59,19 @@ spec:
             - name: SPRING_DATA_MONGODB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: lavanda-mongodb
+                  name: mongo-mongodb
                   key: mongodb-root-password 
             - name: SPRING_DATA_MONGODB_HOST
-              value: lavanda-mongodb
+              value: mongo-mongodb-headless
             - name: SPRING_RABBITMQ_USERNAME
               value: user
             - name: SPRING_RABBITMQ_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: lavanda-rabbitmq
+                  name: rabbitmq
                   key: rabbitmq-password    
             - name: SPRING_RABBITMQ_HOST
-              value: lavanda-rabbitmq                  
+              value: rabbitmq                  
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
