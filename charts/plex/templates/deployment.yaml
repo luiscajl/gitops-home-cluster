@@ -42,18 +42,30 @@ spec:
               name: plex-config-volume
             # - mountPath: /data
               # name: plex-empty-dir  
-            - mountPath: /media/4TB_1
-              name: plex-media-1volume  
-            - mountPath: /media/4TB_2
-              name: plex-media-2volume  
-            - mountPath: /media/4TB_3
-              name: plex-media-3volume 
-            - mountPath: /media/4TB_4
-              name: plex-media-4volume
-            - mountPath: /media/Externo8TB_1
-              name: plex-media-5volume  
-            - mountPath: /media/Externo8TB_2
-              name: plex-media-6volume               
+            - mountPath: /media/4TB_1/Peliculas
+              name: plex-media-films1volume  
+            - mountPath: /media/4TB_2/Peliculas
+              name: plex-media-films2volume  
+            - mountPath: /media/4TB_3/Peliculas
+              name: plex-media-films3volume 
+            - mountPath: /media/4TB_4/Peliculas
+              name: plex-media-films4volume
+            - mountPath: /media/Externo8TB_1/Peliculas
+              name: plex-media-films5volume  
+            - mountPath: /media/Externo8TB_2/Peliculas
+              name: plex-media-films6volume   
+            - mountPath: /media/4TB_1/Series
+              name: plex-media-shows1volume  
+            - mountPath: /media/4TB_2/Series
+              name: plex-media-shows2volume  
+            - mountPath: /media/4TB_3/Series
+              name: plex-media-shows3volume 
+            - mountPath: /media/4TB_4/Series
+              name: plex-media-shows4volume
+            - mountPath: /media/Externo8TB_1/Series
+              name: plex-media-shows5volume  
+            - mountPath: /media/Externo8TB_2/Series
+              name: plex-media-shows6volume               
           env:
             - name: PUID
               value: "1000"
@@ -75,36 +87,66 @@ spec:
         - name: plex-config-volume
           persistentVolumeClaim:
             claimName: plex-config
-        - name: plex-media-1volume
+        - name: plex-media-films1volume
           glusterfs:
             endpoints: glusterfs-cluster
-            path: 4TB_1
+            path: gluster-films1
             readOnly: false
-        - name: plex-media-2volume
+        - name: plex-media-films2volume
           glusterfs:
             endpoints: glusterfs-cluster
-            path: 4TB_2
+            path: gluster-films2
             readOnly: false
-        - name: plex-media-3volume
+        - name: plex-media-films3volume
           glusterfs:
             endpoints: glusterfs-cluster
-            path: 4TB_3
+            path: gluster-films3
             readOnly: false
-        - name: plex-media-4volume
+        - name: plex-media-films4volume
           glusterfs:
             endpoints: glusterfs-cluster
-            path: 4TB_4
+            path: gluster-films4
             readOnly: false
-        - name: plex-media-5volume
+        - name: plex-media-films5volume
           glusterfs:
             endpoints: glusterfs-cluster
-            path: Externo8TB_1
+            path: gluster-films5
             readOnly: false
-        - name: plex-media-6volume
+        - name: plex-media-films6volume
           glusterfs:
             endpoints: glusterfs-cluster
-            path: Externo8TB_2
-            readOnly: false                               
+            path: gluster-films6
+            readOnly: false
+        - name: plex-media-shows1volume
+          glusterfs:
+            endpoints: glusterfs-cluster
+            path: gluster-shows1
+            readOnly: false
+        - name: plex-media-shows2volume
+          glusterfs:
+            endpoints: glusterfs-cluster
+            path: gluster-shows2
+            readOnly: false
+        - name: plex-media-shows3volume
+          glusterfs:
+            endpoints: glusterfs-cluster
+            path: gluster-shows3
+            readOnly: false
+        - name: plex-media-shows4volume
+          glusterfs:
+            endpoints: glusterfs-cluster
+            path: gluster-shows4
+            readOnly: false
+        - name: plex-media-shows5volume
+          glusterfs:
+            endpoints: glusterfs-cluster
+            path: gluster-shows5
+            readOnly: false
+        - name: plex-media-shows6volume
+          glusterfs:
+            endpoints: glusterfs-cluster
+            path: gluster-shows6
+            readOnly: false    
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
