@@ -56,13 +56,13 @@ spec:
               value: {{ required "A valid .Values.global.okta.clientId entry required!" .Values.global.okta.clientId }}
             - name: OKTA_OAUTH2_CLIENT_SECRET
               value: {{ required "A valid .Values.global.okta.clientSecret entry required!" .Values.global.okta.clientSecret }} 
-            - name: SPRING_DATA_MONGODB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mongo-mongodb
-                  key: mongodb-root-password 
-            - name: SPRING_DATA_MONGODB_HOST
-              value: mongo-mongodb-headless
+            # - name: SPRING_DATA_MONGODB_PASSWORD
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: mongo-mongodb
+            #       key: mongodb-root-password 
+            - name: SPRING_DATA_MONGODB_URI
+              value: {{ (printf "mongodb://root:%s@mongo-mongodb-0:27017,mongo-mongodb-1:27017" .Values.global.mongo.password ) }}
             - name: SPRING_RABBITMQ_USERNAME
               value: user
             - name: SPRING_RABBITMQ_PASSWORD
