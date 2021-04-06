@@ -39,7 +39,7 @@ spec:
             - name: PGID
               value: "1000"
             - name: TZ
-              value: "Europe/Paris"
+              value: "Europe/Madrid"
           ports:
             - name: http
               containerPort: 8181
@@ -47,8 +47,6 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: tautulli-config-volume    
-            - mountPath: /tmp/tmp-config
-              name: tautulli-migration-volume  
           # livenessProbe:
           #   httpGet:
           #     path: /
@@ -62,9 +60,7 @@ spec:
       volumes:
         - name: tautulli-config-volume
           persistentVolumeClaim:
-            claimName: tautulli-config  
-        - name: tautulli-migration-volume
-          emptyDir: {}        
+            claimName: tautulli-config     
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
