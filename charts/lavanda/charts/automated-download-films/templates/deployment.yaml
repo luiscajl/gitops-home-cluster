@@ -62,7 +62,7 @@ spec:
             #       name: mongo-mongodb
             #       key: mongodb-root-password 
             - name: SPRING_DATA_MONGODB_URI
-              value: {{ (printf "mongodb://root:%s@mongo-mongodb-0:27017,mongo-mongodb-1:27017" .Values.global.mongo.password ) }}
+              value: {{ (printf "mongodb://root:%s@mongo-mongodb-0:27017,mongo-mongodb-1:27017/lavanda" .Values.global.mongo.password ) }}
             - name: SPRING_RABBITMQ_USERNAME
               value: user
             - name: SPRING_RABBITMQ_PASSWORD
