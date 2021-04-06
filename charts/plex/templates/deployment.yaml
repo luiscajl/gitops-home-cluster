@@ -40,8 +40,8 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: plex-config-volume
-            # - mountPath: /data
-              # name: plex-empty-dir  
+            # - mountPath: /tmp/transcode
+            #   name: plex-transcode-volume
             - mountPath: /media/4TB_1
               name: plex-media-1volume  
             - mountPath: /media/4TB_2
