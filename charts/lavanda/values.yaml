@@ -18,6 +18,9 @@ global:
 automated-download-shows:
   image:
     tag: "0.0.1"  
+automated-download-films:
+  image:
+    tag: "0.0.1"  
 tmdb:
   image:
     tag: "master"             
