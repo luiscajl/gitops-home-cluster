@@ -47,6 +47,8 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: tautulli-config-volume    
+            - mountPath: /tmp/tmp-config
+              name: tautulli-migration-volume  
           # livenessProbe:
           #   httpGet:
           #     path: /
@@ -60,7 +62,9 @@ spec:
       volumes:
         - name: tautulli-config-volume
           persistentVolumeClaim:
-            claimName: tautulli-config      
+            claimName: tautulli-config  
+        - name: tautulli-migration-volume
+          emptyDir: {}        
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
