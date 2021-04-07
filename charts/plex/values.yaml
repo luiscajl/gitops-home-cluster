@@ -82,7 +82,7 @@ tolerations: []
 
 affinity: 
   podAffinity:
-    requiredDuringSchedulingIgnoredDuringExecution:
+    preferredDuringSchedulingIgnoredDuringExecution:
     - labelSelector:
         matchExpressions:
         - key: app.kubernetes.io/name
