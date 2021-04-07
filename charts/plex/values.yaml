@@ -80,4 +80,13 @@ nodeSelector:
 
 tolerations: []
 
-affinity: {}
+affinity: 
+  podAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - labelSelector:
+        matchExpressions:
+        - key: app.kubernetes.io/name
+          operator: In
+          values:
+          - "plex"
+      topologyKey: kubernetes.io/hostname
