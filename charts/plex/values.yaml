@@ -88,6 +88,5 @@ affinity:
         - key: app
           operator: In
           values:
-          - plex
-      topologyKey: topology.kubernetes.io/zone
-
+          - "plex"
+      topologyKey: kubernetes.io/hostname
