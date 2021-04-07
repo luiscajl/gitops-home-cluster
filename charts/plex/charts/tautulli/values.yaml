@@ -79,4 +79,5 @@ affinity:
         - key: app
           operator: In
           values:
-          - tautulli
+          - "tautulli"
+      topologyKey: kubernetes.io/hostname
