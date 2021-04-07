@@ -71,4 +71,13 @@ nodeSelector:
 
 tolerations: []
 
-affinity: {}
+affinity: 
+    podAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+            - key: app
+              operator: In
+              values:
+              - tautulli
+          topologyKey: "kubernetes.io/hostname"
