@@ -73,10 +73,10 @@ tolerations: []
 
 affinity: 
   podAffinity:
-    requiredDuringSchedulingIgnoredDuringExecution:
+    preferredDuringSchedulingIgnoredDuringExecution:
     - labelSelector:
         matchExpressions:
-        - key: app
+        - key: app.kubernetes.io/name
           operator: In
           values:
           - "tautulli"
