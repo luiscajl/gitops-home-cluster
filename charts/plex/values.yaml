@@ -5,9 +5,9 @@
 replicaCount: 1
 
 image:
-  repository: linuxserver/plex
+  repository: ghcr.io/linuxserver/plex
   pullPolicy: IfNotPresent
-  tag: "latest"
+  #tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
