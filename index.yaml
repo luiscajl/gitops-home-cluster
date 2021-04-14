@@ -527,6 +527,13 @@ entries:
     version: 0.0.2
   plex:
   - apiVersion: v2
+    created: "2021-04-14T05:41:20.407637462Z"
+    digest: 3fc6976fced9785b48855618f7eb96c97a9bffb68f3c8fb0e774639e35eeedaf
+    name: plex
+    urls:
+    - https://github.com/luiscajl/gitops-home-cluster/releases/download/plex-0.0.19/plex-0.0.19.tgz
+    version: 0.0.19
+  - apiVersion: v2
     created: "2021-04-07T12:19:03.041941722Z"
     digest: 99e57787a98754c508af7b0c39ed400a31b82c366b7296eeffc09688896ba5ef
     name: plex
@@ -652,4 +659,4 @@ entries:
     urls:
     - https://github.com/luiscajl/gitops-home-cluster/releases/download/plex-0.0.1/plex-0.0.1.tgz
     version: 0.0.1
-generated: "2021-04-07T16:48:52.900118488Z"
+generated: "2021-04-14T05:41:20.412315824Z"
