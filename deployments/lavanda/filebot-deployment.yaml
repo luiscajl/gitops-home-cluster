@@ -1,54 +1,54 @@
-apiVersion: batch/v1beta1
-kind: CronJob
-metadata:
-  name: filebot
-  namespace: lavanda
-spec:
-  schedule: "@hourly"
-  successfulJobsHistoryLimit: 3
-  failedJobsHistoryLimit: 3
-  jobTemplate:
-    spec:
-      template:
-        spec:
-          containers:
-            - name: filebot
-              image: rednoah/filebot
-              imagePullPolicy: IfNotPresent
-              securityContext:
-                runAsUser: 1000
-                runAsGroup: 1000
-              command:
-                - /bin/sh
-                - -c
-                - filebot -script 'fn:amc' /downloads --output /downloaded --action move -non-strict --order Airdate --conflict skip --lang es --def 'music=y' 'unsorted=y' 'storeReport=/downloads/.reports' 'seriesFormat=/downloaded/Series/{n}/ Season {s}/{n} s{s.pad(2)}e{e.pad(2)}' 'movieFormat=/downloaded/Peliculas/{n} ({y})' 'unsortedFormat=/downloaded/Unsorted' 'excludeList=/downloads/.excludes'; [ $? -eq 100 ] || [ $? -eq 0 ]
-              volumeMounts:
-                - mountPath: /downloads
-                  name: filebot-downloads
-                - mountPath: /downloaded/Peliculas
-                  name: filebot-downloaded-films
-                - mountPath: /downloaded/Series
-                  name: filebot-downloaded-shows
-                - mountPath: /data 
-                --> FILEBOT-CONFIG
-                  name: filebot-data
-                - mountPath: /serial
-                --> FILEBOT-CONFIG
-                  name: filebot-serial
-          restartPolicy: Never
-          volumes:
-            - name: filebot-downloads
-              persistentVolumeClaim:
-                claimName: filebot-downloads
-            - name: filebot-downloaded-films
-              persistentVolumeClaim:
-                claimName: filebot-downloaded-films
-            - name: filebot-downloaded-shows
-              persistentVolumeClaim:
-                claimName: filebot-downloaded-shows
-            - name: filebot-data
-              persistentVolumeClaim:
-                claimName: filebot-data
-            - name: filebot-serial
-              persistentVolumeClaim:
-                claimName: filebot-serial
+# apiVersion: batch/v1beta1
+# kind: CronJob
+# metadata:
+#   name: filebot
+#   namespace: lavanda
+# spec:
+#   schedule: "@hourly"
+#   successfulJobsHistoryLimit: 3
+#   failedJobsHistoryLimit: 3
+#   jobTemplate:
+#     spec:
+#       template:
+#         spec:
+#           containers:
+#             - name: filebot
+#               image: rednoah/filebot
+#               imagePullPolicy: IfNotPresent
+#               securityContext:
+#                 runAsUser: 1000
+#                 runAsGroup: 1000
+#               command:
+#                 - /bin/sh
+#                 - -c
+#                 - filebot -script 'fn:amc' /downloads --output /downloaded --action move -non-strict --order Airdate --conflict skip --lang es --def 'music=y' 'unsorted=y' 'storeReport=/downloads/.reports' 'seriesFormat=/downloaded/Series/{n}/ Season {s}/{n} s{s.pad(2)}e{e.pad(2)}' 'movieFormat=/downloaded/Peliculas/{n} ({y})' 'unsortedFormat=/downloaded/Unsorted' 'excludeList=/downloads/.excludes'; [ $? -eq 100 ] || [ $? -eq 0 ]
+#               volumeMounts:
+#                 - mountPath: /downloads
+#                   name: filebot-downloads
+#                 - mountPath: /downloaded/Peliculas
+#                   name: filebot-downloaded-films
+#                 - mountPath: /downloaded/Series
+#                   name: filebot-downloaded-shows
+#                 - mountPath: /data 
+#                 --> FILEBOT-CONFIG
+#                   name: filebot-data
+#                 - mountPath: /serial
+#                 --> FILEBOT-CONFIG
+#                   name: filebot-serial
+#           restartPolicy: Never
+#           volumes:
+#             - name: filebot-downloads
+#               persistentVolumeClaim:
+#                 claimName: filebot-downloads
+#             - name: filebot-downloaded-films
+#               persistentVolumeClaim:
+#                 claimName: filebot-downloaded-films
+#             - name: filebot-downloaded-shows
+#               persistentVolumeClaim:
+#                 claimName: filebot-downloaded-shows
+#             - name: filebot-data
+#               persistentVolumeClaim:
+#                 claimName: filebot-data
+#             - name: filebot-serial
+#               persistentVolumeClaim:
+#                 claimName: filebot-serial
