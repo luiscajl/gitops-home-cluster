@@ -38,8 +38,8 @@ spec:
               containerPort: 9091
               protocol: TCP
           volumeMounts:
-            # - mountPath: /downloads
-            #   name: transmission-downloads-volume
+            - mountPath: /downloads
+              name: transmission-downloads-volume
             - mountPath: /config
               name: transmission-config-volume
           livenessProbe:
@@ -84,6 +84,10 @@ spec:
         # - name: transmission-downloads-volume
         #   persistentVolumeClaim:
         #     claimName: transmission-downloads
+        - name: transmission-downloads-volume
+          nfs:
+           server: 10.10.120.50
+           path: /media/Externo8TB_2/Descargas
         - name: transmission-config-volume
           persistentVolumeClaim:
             claimName: transmission-config      
