@@ -1,4 +1,6 @@
+
 replicaCount: 1
+
 image:
   repository: linuxserver/tautulli
   pullPolicy: IfNotPresent
@@ -74,10 +76,12 @@ tolerations: []
 affinity: 
   podAffinity:
     preferredDuringSchedulingIgnoredDuringExecution:
-    - labelSelector:
-        matchExpressions:
-        - key: app.kubernetes.io/name
-          operator: In
-          values:
-          - "tautulli"
-      topologyKey: kubernetes.io/hostname
+    - weight: 99
+      podAffinityTerm:
+        labelSelector:
+          matchExpressions:
+          - key: app.kubernetes.io/name
+            operator: In
+            values:
+            - "tautulli"
+        topologyKey: kubernetes.io/hostname
