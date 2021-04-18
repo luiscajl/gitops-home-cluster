@@ -1,20 +1,20 @@
 global:
   aws:
-    accessKeyId: awdawd
-    secretAccessKey: awdawd
+    accessKeyId: 
+    secretAccessKey: 
   okta:
-    issuer: awd
-    clientId: awd
-    clientSecret:  awd
-    frontendClientId: awd
+    issuer: 
+    clientId: 
+    clientSecret:  
+    frontendClientId: 
   url:
-    backend: awd
+    backend: 
   transmission:
-    host: awd
-    port: awd
-    user: awda
-    password: awd
-    urlRpc: awd
+    host: 
+    port: 
+    user: 
+    password: 
+    urlRpc: 
 automated-download-shows:
   image:
     tag: "0.0.1"  
