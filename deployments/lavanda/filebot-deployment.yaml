@@ -13,7 +13,7 @@ spec:
         spec:
           containers:
             - name: filebot
-              image: ubuntu
+              image: rednoah/filebot
               imagePullPolicy: IfNotPresent
               # securityContext:
               #   runAsUser: 1000
