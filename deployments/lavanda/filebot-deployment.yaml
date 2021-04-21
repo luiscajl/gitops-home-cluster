@@ -15,38 +15,24 @@ spec:
             - name: filebot
               image: rednoah/filebot
               imagePullPolicy: IfNotPresent
-              # securityContext:
-              #   runAsUser: 1000
-              #   runAsGroup: 1000
-              command: ["/bin/sleep", "3650d"]
-  
-              # command:
-              #   - /bin/sh
-              #   - -c
-              #   - filebot -script 'fn:amc' /downloads --output /downloaded --action move -non-strict --order Airdate --conflict skip --lang es --def 'music=y' 'unsorted=y' 'storeReport=/config/data/.reports' 'seriesFormat=/downloaded/Series/{n}/ Season {s}/{n} s{s.pad(2)}e{e.pad(2)}' 'movieFormat=/downloaded/Peliculas/{n} ({y})' 'unsortedFormat=/downloaded/Unsorted' 'excludeList=/config/data/.excludes'; [ $? -eq 100 ] || [ $? -eq 0 ]
+              securityContext:
+                runAsUser: 1000
+                runAsGroup: 1000
+              command:
+                - /bin/sh
+                - -c
+                - filebot -script 'fn:amc' /media/Descargas --output /media/Downloaded --action move -non-strict --order Airdate --conflict skip --lang es --def 'music=y' 'unsorted=y' 'storeReport=/data/.reports' 'seriesFormat=/media/Downloaded/Series/{n}/ Season {s}/{n} s{s.pad(2)}e{e.pad(2)}' 'movieFormat=/media/Downloaded/Peliculas/{n} ({y})' 'unsortedFormat=/media/Downloaded/Unsorted' 'excludeList=/data/.excludes'; [ $? -eq 100 ] || [ $? -eq 0 ]
               volumeMounts:
-                - mountPath: /downloads
-                  name: filebot-downloads
-                - mountPath: /downloaded/Peliculas
-                  name: filebot-downloaded-films
-                - mountPath: /downloaded/Series
-                  name: filebot-downloaded-shows
+                - mountPath: /media
+                  name: filebot-media
                 - mountPath: /data
                   name: filebot-config
           restartPolicy: Never
           volumes:
-            - name: filebot-downloads
+            - name: filebot-media
               nfs:
                 server: 10.10.120.50
-                path: /media/Externo8TB_2/Descargas
-            - name: filebot-downloaded-films
-              nfs:
-                server: 10.10.120.50
-                path: /media/Externo8TB_2/Downloaded/Peliculas
-            - name: filebot-downloaded-shows
-              nfs:
-                server: 10.10.120.50
-                path: /media/Externo8TB_2/Downloaded/Series
+                path: /media/Externo8TB_2
             - name: filebot-config
               persistentVolumeClaim:
                 claimName: filebot-config
