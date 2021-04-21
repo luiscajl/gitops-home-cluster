@@ -15,9 +15,9 @@ spec:
             - name: filebot
               image: ubuntu
               imagePullPolicy: IfNotPresent
-              securityContext:
-                runAsUser: 1000
-                runAsGroup: 1000
+              # securityContext:
+              #   runAsUser: 1000
+              #   runAsGroup: 1000
               command: ["/bin/sleep", "3650d"]
   
               # command:
