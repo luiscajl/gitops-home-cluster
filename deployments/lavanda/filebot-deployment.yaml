@@ -31,7 +31,7 @@ spec:
                   name: filebot-downloaded-films
                 - mountPath: /downloaded/Series
                   name: filebot-downloaded-shows
-                - mountPath: /config
+                - mountPath: /data
                   name: filebot-config
           restartPolicy: Never
           volumes:
