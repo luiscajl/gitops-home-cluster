@@ -21,7 +21,7 @@ spec:
               command:
                 - /bin/sh
                 - -c
-                - filebot -script 'fn:amc' /downloads --output /downloaded --action move -non-strict --order Airdate --conflict skip --lang es --def 'music=y' 'unsorted=y' 'storeReport=/downloads/.reports' 'seriesFormat=/downloaded/Series/{n}/ Season {s}/{n} s{s.pad(2)}e{e.pad(2)}' 'movieFormat=/downloaded/Peliculas/{n} ({y})' 'unsortedFormat=/downloaded/Unsorted' 'excludeList=/downloads/.excludes'; [ $? -eq 100 ] || [ $? -eq 0 ]
+                - filebot -script 'fn:amc' /downloads --output /downloaded --action move -non-strict --order Airdate --conflict skip --lang es --def 'music=y' 'unsorted=y' 'storeReport=/config/data/.reports' 'seriesFormat=/downloaded/Series/{n}/ Season {s}/{n} s{s.pad(2)}e{e.pad(2)}' 'movieFormat=/downloaded/Peliculas/{n} ({y})' 'unsortedFormat=/downloaded/Unsorted' 'excludeList=/config/data/.excludes'; [ $? -eq 100 ] || [ $? -eq 0 ]
               volumeMounts:
                 - mountPath: /downloads
                   name: filebot-downloads
@@ -29,30 +29,22 @@ spec:
                   name: filebot-downloaded-films
                 - mountPath: /downloaded/Series
                   name: filebot-downloaded-shows
-                - mountPath: /data 
-                --> FILEBOT-CONFIG
-                  name: filebot-data
-                - mountPath: /serial
-                --> FILEBOT-CONFIG
-                  name: filebot-serial
+                - mountPath: /config
+                  name: filebot-config
           restartPolicy: Never
           volumes:
             - name: filebot-downloads
               nfs:
                 server: 10.10.120.50
-                path: /media/Externo8TB_2/Descargas            
+                path: /media/Externo8TB_2/Descargas
             - name: filebot-downloaded-films
               nfs:
                 server: 10.10.120.50
-                path: /media/Externo8TB_2/Descargas 
+                path: /media/Externo8TB_2/Downloaded/Peliculas
             - name: filebot-downloaded-shows
               nfs:
                 server: 10.10.120.50
-                path: /media/Externo8TB_2/Descargas     
-
-            - name: filebot-data
+                path: /media/Externo8TB_2/Downloaded/Series
+            - name: filebot-config
               persistentVolumeClaim:
-                claimName: filebot-data
-            - name: filebot-serial
-              persistentVolumeClaim:
-                claimName: filebot-serial
+                claimName: filebot-config
