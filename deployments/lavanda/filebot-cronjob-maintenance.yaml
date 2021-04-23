@@ -5,7 +5,7 @@ metadata:
   namespace: lavanda
 spec:
   schedule: "@hourly"
-  suspend: 'true'
+  suspend: true
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
