@@ -22,7 +22,7 @@ spec:
               command:
                 - /bin/sh
                 - -c
-                - filebot -no-xattr -script 'fn:amc' /media/Descargas --output /media/Downloaded --action move -non-strict --order Airdate --conflict skip -no-xattr --lang es --def 'music=y' 'unsorted=y' 'storeReport=/data/.reports' 'seriesFormat=/media/Downloaded/Series/{n}/ Season {s}/{n} s{s.pad(2)}e{e.pad(2)}' 'movieFormat=/media/Downloaded/Peliculas/{n} ({y})' 'unsortedFormat=/media/Downloaded/Unsorted' 'excludeList=/data/.excludes'; [ $? -eq 100 ] || [ $? -eq 0 ]
+                - filebot -no-xattr -script 'fn:amc' /media/Descargas --output /media/Downloaded --action move -non-strict --order Airdate --conflict skip -no-xattr --lang es --def 'music=y' 'unsorted=y' 'storeReport=/data/.reports' 'seriesFormat=/media/Downloaded/Series/{n}/ Season {s}/{n} s{s.pad(2)}e{e.pad(2)}' 'movieFormat=/media/Downloaded/Peliculas/{n} ({y})' 'unsortedFormat=/media/Downloaded/Unsorted/{n}' 'excludeList=/data/.excludes'; [ $? -eq 100 ] || [ $? -eq 0 ]
               volumeMounts:
                 - mountPath: /media
                   name: filebot-media
