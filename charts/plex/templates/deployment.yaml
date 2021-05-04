@@ -61,14 +61,14 @@ spec:
               value: "1000"
             - name: VERSION
               value: "docker"      
-          # livenessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: http
-          # readinessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: http
+          livenessProbe:
+            httpGet:
+              path: /identity
+              port: 32400
+          readinessProbe:
+            httpGet:
+              path: /identity
+              port: 32400
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
