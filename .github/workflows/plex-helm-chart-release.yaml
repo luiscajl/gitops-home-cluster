@@ -1,5 +1,4 @@
 name: Plex Chart deploy
-
 on:
   push:
     paths:
