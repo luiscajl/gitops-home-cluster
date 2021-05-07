@@ -52,11 +52,8 @@ spec:
               value: {{ required "A valid .Values.global.okta.clientId entry required!" .Values.global.okta.clientId }}
             - name: OKTA_OAUTH2_CLIENT_SECRET
               value: {{ required "A valid .Values.global.okta.clientSecret entry required!" .Values.global.okta.clientSecret }} 
-            - name: SPRING_DATA_MONGODB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: lavanda-mongodb
-                  key: mongodb-root-password      
+            - name: SPRING_DATA_MONGODB_URI
+              value: {{ (printf "mongodb://root:%s@mongo-mongodb-headless:27017/lavanda?authSource=admin" .Values.global.mongo.password ) }}     
           ports:
             - name: http
               containerPort: 8080
