@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: lavandadelpatio/automated-download-shows
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: "0.0.2"
 
 imagePullSecrets: []
 nameOverride: ""
