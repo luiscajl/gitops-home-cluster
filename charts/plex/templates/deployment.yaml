@@ -42,6 +42,8 @@ spec:
               name: plex-config-volume
             # - mountPath: /tmp/transcode
             #   name: plex-transcode-volume
+            - mountPath: /data
+              name: plex-empty-dir
             - mountPath: /media/4TB_1
               name: plex-media-1volume  
             - mountPath: /media/4TB_2
@@ -75,6 +77,8 @@ spec:
         - name: plex-config-volume
           persistentVolumeClaim:
             claimName: plex-config
+        - name: plex-empty-dir
+          emptyDir: {}    
         - name: plex-media-1volume
           nfs:
            server: 10.10.120.50
