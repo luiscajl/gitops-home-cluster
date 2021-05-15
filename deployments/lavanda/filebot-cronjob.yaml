@@ -29,6 +29,8 @@ spec:
                 - mountPath: /data
                   name: filebot-config
           restartPolicy: Never
+          nodeSelector:
+            cputype: amd64
           volumes:
             - name: filebot-media
               nfs:
