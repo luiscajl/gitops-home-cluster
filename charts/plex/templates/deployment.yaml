@@ -42,8 +42,6 @@ spec:
               name: plex-config-volume
             # - mountPath: /tmp/transcode
             #   name: plex-transcode-volume
-            - mountPath: /data
-              name: plex-empty-dir
             - mountPath: /media/4TB_1
               name: plex-media-1volume  
             - mountPath: /media/4TB_2
@@ -63,22 +61,20 @@ spec:
               value: "1000"
             - name: VERSION
               value: "docker"      
-          # livenessProbe:
-          #   httpGet:
-          #     path: /identity
-          #     port: 32400
-          # readinessProbe:
-          #   httpGet:
-          #     path: /identity
-          #     port: 32400
+          livenessProbe:
+            httpGet:
+              path: /identity
+              port: 32400
+          readinessProbe:
+            httpGet:
+              path: /identity
+              port: 32400
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
         - name: plex-config-volume
           persistentVolumeClaim:
-            claimName: plex-config
-        - name: plex-empty-dir
-          emptyDir: {}    
+            claimName: plex-config  
         - name: plex-media-1volume
           nfs:
            server: 10.10.120.50
