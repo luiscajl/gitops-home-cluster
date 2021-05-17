@@ -16,9 +16,6 @@ spec:
             - name: filebot-maintenance
               image: rednoah/filebot
               imagePullPolicy: IfNotPresent
-              securityContext:
-                runAsUser: 1000
-                runAsGroup: 1000
               command: ["/bin/sleep", "3650d"]
               volumeMounts:
                 - mountPath: /media
