@@ -2,7 +2,8 @@ name: Plex Chart deploy
 on:
   push:
     paths:
-      - "charts/plex/plex-helm-chart-release.yaml"
+      - "charts/plex/Chart.yaml"
+      - ".github/workflows/plex-helm-chart-release.yaml"
     branches:
       - master
 jobs:
@@ -20,7 +21,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
-          version: v3.4.0
+          version: v3.5.4
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.2.1
         env:
