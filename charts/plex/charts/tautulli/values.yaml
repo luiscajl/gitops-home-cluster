@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: linuxserver/tautulli
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   tag: "latest"
 
 imagePullSecrets: []
