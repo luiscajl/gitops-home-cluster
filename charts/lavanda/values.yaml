@@ -27,7 +27,4 @@ tmdb:
 frontend-ng:
   image:
     tag: "master"  
-feed-films:
-  image:
-    tag: "0.0.1"     
 
