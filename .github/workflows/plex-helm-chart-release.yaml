@@ -2,7 +2,7 @@ name: Plex Chart deploy
 on:
   push:
     paths:
-      - "charts/plex/Chart.yaml"
+      - "charts/plex/plex-helm-chart-release.yaml"
     branches:
       - master
 jobs:
