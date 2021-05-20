@@ -47,14 +47,14 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: tautulli-config-volume    
-          livenessProbe:
-            httpGet:
-              path: /status
-              port: 8181
-          readinessProbe:
-            httpGet:
-              path: /status
-              port: 8181
+          #livenessProbe:
+          #  httpGet:
+          #    path: /status
+          #    port: 8181
+          #readinessProbe:
+          #  httpGet:
+          #    path: /status
+          #    port: 8181
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
