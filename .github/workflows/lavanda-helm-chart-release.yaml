@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - "charts/lavanda/Chart.yaml"
+      - ".github/workflows/lavanda-helm-chart-release.yaml"
     branches:
       - master
 jobs:
