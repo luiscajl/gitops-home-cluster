@@ -6,8 +6,8 @@ replicaCount: 1
 
 image:
   repository: lavandadelpatio/frontend-ng
-  pullPolicy: IfNotPresent
-  tag: "sha-d3145d5"    
+  pullPolicy: Always
+  tag: "master"    
 
 imagePullSecrets: []
 nameOverride: ""
