@@ -1,4 +1,4 @@
-apiVersion: apps/v1 # Usa apps/v1beta2 para versiones anteriores a 1.9.0
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ubuntu-deployment
@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: ubuntu
-  replicas: 0 # indica al controlador que ejecute 2 pods
+  replicas: 0
   template:
     metadata:
       labels:
