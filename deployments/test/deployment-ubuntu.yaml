@@ -1,0 +1,19 @@
+apiVersion: apps/v1 # Usa apps/v1beta2 para versiones anteriores a 1.9.0
+kind: Deployment
+metadata:
+  name: ubuntu-deployment
+  namespace: test
+spec:
+  selector:
+    matchLabels:
+      app: ubuntu
+  replicas: 0 # indica al controlador que ejecute 2 pods
+  template:
+    metadata:
+      labels:
+        app: ubuntu
+    spec:
+      containers:
+        - name: ubuntu
+          image: ubuntu
+          command: ["sleep", "123456"]
