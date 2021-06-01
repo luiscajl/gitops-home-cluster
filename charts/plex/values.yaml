@@ -74,10 +74,12 @@ tolerations: []
 affinity: 
   podAffinity:
     preferredDuringSchedulingIgnoredDuringExecution:
-    - labelSelector:
-        matchExpressions:
-        - key: app.kubernetes.io/name
-          operator: In
-          values:
-          - "plex"
-      topologyKey: kubernetes.io/hostname
+    - weight: 99
+      podAffinityTerm:
+        labelSelector:
+          matchExpressions:
+          - key: app.kubernetes.io/name
+            operator: In
+            values:
+            - "plex"
+        topologyKey: kubernetes.io/hostname

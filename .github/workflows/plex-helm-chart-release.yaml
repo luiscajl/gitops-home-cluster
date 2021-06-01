@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - "charts/plex/Chart.yaml"
+      - ".github/workflows/plex-helm-chart-release.yaml"
     branches:
       - master
 jobs:
@@ -10,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
+        with:
+          fetch-depth: 0
       - name: Configure Git
         run: |
           git config user.name "$GITHUB_ACTOR"
@@ -19,7 +21,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
-          version: default
+          version: v3.5.4
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.2.1
         env:
