@@ -23,7 +23,7 @@ automated-download-films:
     tag: "0.0.5"  
 tmdb:
   image:
-    tag: "master"             
+    tag: "0.0.1"             
 frontend-ng:
   image:
     tag: "master"  
