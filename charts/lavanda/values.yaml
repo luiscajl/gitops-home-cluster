@@ -20,7 +20,7 @@ automated-download-shows:
     tag: "0.0.2"  
 automated-download-films:
   image:
-    tag: "0.0.7"  
+    tag: "0.0.8"  
 tmdb:
   image:
     tag: "0.0.2"             
