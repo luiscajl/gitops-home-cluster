@@ -1,13 +1,12 @@
 global:
   global:
   aws:
-    accessKeyId: AKIA4FVBTOUS7V7CBMTN
-    secretAccessKey: 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
+    accessKeyId: 
+    secretAccessKey: 
   okta:
-    issuer: https://login.lavandadelpatio.es/oauth2/aus1gu0ohspGnNyVh4x7
-    clientId: 0oabskmb4IQH6y5HT4x6
-    clientSecret:  K4yzOEGcq1JMs41VDHknhIw_Zu1OMSpHqq6cQZ-v
-    frontendClientId: 0oa1gmjdhcpTJy1y64x7
+    issuer: 
+    clientId: 
+    clientSecret:  
 media:
   image:
     tag: "57141052"  
