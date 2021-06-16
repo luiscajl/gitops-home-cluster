@@ -30,7 +30,7 @@ podSecurityContext: {}
 
 securityContext: 
   # runAsNonRoot: true
-  runAsUser: 1500
+  runAsUser: 1600
   runAsGroup: 3000
 
 service:
