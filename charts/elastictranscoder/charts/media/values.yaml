@@ -44,7 +44,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   hosts:
     - host: api.lavandadelpatio.es
-      paths: [ /elastictranscoder/media ]
+      paths: [ /media ]
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
