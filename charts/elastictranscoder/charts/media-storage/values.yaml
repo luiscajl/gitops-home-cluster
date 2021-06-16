@@ -77,4 +77,16 @@ nodeSelector: {}
 
 tolerations: []
 
-affinity: {}
+affinity: 
+  podAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 99
+      podAffinityTerm:
+        labelSelector:
+          matchExpressions:
+          - key: app.kubernetes.io/name
+            operator: In
+            values:
+            - "elastictranscoder-transcoder-handler"
+        topologyKey: kubernetes.io/hostname
+
