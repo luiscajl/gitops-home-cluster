@@ -36,7 +36,6 @@ spec:
           volumeMounts:
             - name: elastictranscoder-data
               mountPath: /media/elastictranscoder-data
-          {{- end }} 
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: prod,host
