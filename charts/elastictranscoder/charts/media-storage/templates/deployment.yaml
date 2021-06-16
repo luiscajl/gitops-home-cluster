@@ -33,22 +33,6 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          volumeMounts:
-            - name: elastictranscoder-data
-              mountPath: /media/elastictranscoder-data
-          env:
-            - name: SPRING_PROFILES_ACTIVE
-              value: prod,host
-            - name: AWS_ACCESS_KEY_ID
-              value: {{ .Values.global.aws.accessKeyId }} 
-            - name: AWS_SECRET_ACCESS_KEY
-              value: {{ .Values.global.aws.secretAccessKey }}   
-            - name: OKTA_OAUTH2_ISSUER
-              value: {{ .Values.global.okta.issuer }}
-            - name: OKTA_OAUTH2_CLIENT_ID
-              value: {{ .Values.global.okta.clientId }}
-            - name: OKTA_OAUTH2_CLIENT_SECRET
-              value: {{ .Values.global.okta.clientSecret }}  
           ports:
             - name: http
               containerPort: 8080
@@ -72,16 +56,32 @@ spec:
             failureThreshold: 3
             successThreshold: 1 
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{- toYaml .Values.resources | nindent 12 }}  
+          volumeMounts:
+            - name: elastictranscoder-data
+              mountPath: /media/elastictranscoder-data    
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod,host
+            - name: AWS_ACCESS_KEY_ID
+              value: {{ .Values.global.aws.accessKeyId }} 
+            - name: AWS_SECRET_ACCESS_KEY
+              value: {{ .Values.global.aws.secretAccessKey }}   
+            - name: OKTA_OAUTH2_ISSUER
+              value: {{ .Values.global.okta.issuer }}
+            - name: OKTA_OAUTH2_CLIENT_ID
+              value: {{ .Values.global.okta.clientId }}
+            - name: OKTA_OAUTH2_CLIENT_SECRET
+              value: {{ .Values.global.okta.clientSecret }}  
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.affinity }}
       volumes:
         - name: elastictranscoder-data
           persistentVolumeClaim:
             claimName: elastictranscoder-data
+      {{- with .Values.affinity }}      
       affinity:
         {{- toYaml . | nindent 8 }}
       {{- end }}
