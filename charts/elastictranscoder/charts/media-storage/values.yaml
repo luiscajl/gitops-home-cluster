@@ -87,6 +87,6 @@ affinity:
           - key: app.kubernetes.io/name
             operator: In
             values:
-            - "elastictranscoder-transcoder-handler"
+            - "elastictranscoder"
         topologyKey: kubernetes.io/hostname
 
