@@ -79,9 +79,9 @@ spec:
       {{- end }}
       {{- with .Values.affinity }}
       volumes:
-            - name: elastictranscoder-data
-              persistentVolumeClaim:
-                claimName: elastictranscoder-data
+        - name: elastictranscoder-data
+          persistentVolumeClaim:
+            claimName: elastictranscoder-data
       affinity:
         {{- toYaml . | nindent 8 }}
       {{- end }}

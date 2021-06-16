@@ -1,5 +1,4 @@
 global:
-  global:
   aws:
     accessKeyId: 
     secretAccessKey: 
