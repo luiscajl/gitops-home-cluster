@@ -11,7 +11,7 @@ media:
     tag: "a7bd5746"  
 media-storage:
   image:
-    tag: "a7bd5746"  
+    tag: "245d4bc6"  
 transcoder:
   image:
     tag: "cff96c5a"             
