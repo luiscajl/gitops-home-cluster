@@ -8,13 +8,13 @@ global:
     clientSecret:  
 media:
   image:
-    tag: "2c577713"  
+    tag: "a7bd5746"  
 media-storage:
   image:
-    tag: "2c577713"  
+    tag: "a7bd5746"  
 transcoder:
   image:
-    tag: "c596216b"             
+    tag: "cff96c5a"             
 transcoder-handler:
   image:
-    tag: "2c577713"  
+    tag: "a9e4129c"  
