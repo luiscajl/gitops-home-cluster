@@ -61,6 +61,8 @@ spec:
             - name: elastictranscoder-data
               mountPath: /media/elastictranscoder-data    
           env:
+            - name: LOGGING_LEVEL_ROOT
+              value: DEBUG
             - name: SPRING_PROFILES_ACTIVE
               value: prod,host
             - name: AWS_ACCESS_KEY_ID
