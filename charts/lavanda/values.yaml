@@ -17,7 +17,7 @@ global:
     urlRpc: 
 automated-download-shows:
   image:
-    tag: "0.0.2"  
+    tag: "0.0.4"  
 automated-download-films:
   image:
     tag: "0.0.18"  
