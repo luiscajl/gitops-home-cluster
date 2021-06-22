@@ -8,7 +8,7 @@ okta:
   clientSecret:  
 
 
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: elastictranscoder/media-storage
