@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: elastictranscoder-test-media-storage-headless
   labels:
-    app: elastictranscoder-test-media-storage-headless
+    app: elastictranscoder-test-media-storage
 spec:
   ports:
     - port: 8080
