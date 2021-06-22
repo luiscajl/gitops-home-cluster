@@ -8,6 +8,7 @@ spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
+  serviceName: "elastictranscoder-test-media-storage"
   selector:
     matchLabels:
       {{- include "media-storage.selectorLabels" . | nindent 6 }}
