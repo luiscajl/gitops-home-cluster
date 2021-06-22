@@ -38,6 +38,7 @@ securityContext:
   runAsUser: 1500
   runAsGroup: 3000
   fsGroup: 2000
+  privileged: true
 
 service:
   type: ClusterIP
