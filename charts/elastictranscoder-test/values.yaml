@@ -1,11 +1,11 @@
 
 aws:
-    accessKeyId: 
-    secretAccessKey: 
-  okta:
-    issuer: 
-    clientId: 
-    clientSecret:  
+  accessKeyId: 
+  secretAccessKey: 
+okta:
+  issuer: 
+  clientId: 
+  clientSecret:  
 
 
 replicaCount: 1
