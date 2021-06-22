@@ -30,8 +30,7 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext: 
-  fsGroup: 2000
+podSecurityContext: {}
 
 securityContext: 
   runAsNonRoot: true
@@ -39,6 +38,7 @@ securityContext:
   runAsGroup: 3000
   fsGroup: 2000
   privileged: true
+  fsGroupChangePolicy: "OnRootMismatch"
 
 service:
   type: ClusterIP
