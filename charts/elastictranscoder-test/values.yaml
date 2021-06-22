@@ -41,7 +41,7 @@ securityContext:
   privileged: true
 
 service:
-  type: ClusterIP
+  type: None
   port: 8080
 
 ingress:
