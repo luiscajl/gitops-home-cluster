@@ -37,6 +37,7 @@ securityContext:
   runAsNonRoot: true
   runAsUser: 1500
   runAsGroup: 3000
+  fsGroup: 2000
 
 service:
   type: ClusterIP
