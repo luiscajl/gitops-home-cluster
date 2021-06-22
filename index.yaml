@@ -1156,6 +1156,17 @@ entries:
     urls:
     - https://github.com/luiscajl/gitops-home-cluster/releases/download/lavanda-0.0.2/lavanda-0.0.2.tgz
     version: 0.0.2
+  media-storage:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-06-22T07:49:12.235443431Z"
+    description: A Helm chart for Kubernetes
+    digest: 12ae7241b24815a56cc58d8ded7e9a8a14809c4b45644f20660992c1be8083e1
+    name: media-storage
+    type: application
+    urls:
+    - https://github.com/luiscajl/gitops-home-cluster/releases/download/media-storage-0.3.0/media-storage-0.3.0.tgz
+    version: 0.3.0
   plex:
   - apiVersion: v2
     created: "2021-05-20T16:23:33.446253191Z"
@@ -1360,4 +1371,4 @@ entries:
     urls:
     - https://github.com/luiscajl/gitops-home-cluster/releases/download/plex-0.0.1/plex-0.0.1.tgz
     version: 0.0.1
-generated: "2021-06-22T07:10:22.14491242Z"
+generated: "2021-06-22T07:49:12.236905903Z"
