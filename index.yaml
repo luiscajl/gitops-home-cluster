@@ -1158,6 +1158,15 @@ entries:
     version: 0.0.2
   media-storage:
   - apiVersion: v2
+    created: "2021-06-22T09:23:09.59181304Z"
+    description: A Helm chart for Kubernetes
+    digest: 238868eeffb3c7fa0ed1bb2c4cda403637027d9dc5cbef5ff8a7a75ca3ecd7cf
+    name: media-storage
+    type: application
+    urls:
+    - https://github.com/luiscajl/gitops-home-cluster/releases/download/media-storage-0.7.0/media-storage-0.7.0.tgz
+    version: 0.7.0
+  - apiVersion: v2
     appVersion: 1.16.0
     created: "2021-06-22T08:40:52.92504294Z"
     description: A Helm chart for Kubernetes
@@ -1401,4 +1410,4 @@ entries:
     urls:
     - https://github.com/luiscajl/gitops-home-cluster/releases/download/plex-0.0.1/plex-0.0.1.tgz
     version: 0.0.1
-generated: "2021-06-22T08:40:52.927326528Z"
+generated: "2021-06-22T09:23:09.592799089Z"
