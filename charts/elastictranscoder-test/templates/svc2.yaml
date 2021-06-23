@@ -10,5 +10,5 @@ spec:
     protocol: TCP
     targetPort: http
   selector:
-    app: elastictranscoder-media-storage-test
+    app: elastictranscoder-test-media-storage
   type: ClusterIP
