@@ -336,6 +336,15 @@ entries:
     version: 0.1.0
   lavanda:
   - apiVersion: v2
+    created: "2021-06-28T07:26:31.436583033Z"
+    description: Helm chart for lavanda kubernetes cluster
+    digest: ffa7d260b309b22fddbae55cdd675f74dd542a56af0d4dabcf76d4320d01c8cf
+    name: lavanda
+    type: application
+    urls:
+    - https://github.com/luiscajl/gitops-home-cluster/releases/download/lavanda-0.0.73/lavanda-0.0.73.tgz
+    version: 0.0.73
+  - apiVersion: v2
     created: "2021-06-20T10:46:23.603857714Z"
     description: Helm chart for lavanda kubernetes cluster
     digest: 50112c89a576e8bd1e5d99781f7af1da0e09cf17b684f4fac8e4b1ca245be61a
@@ -1509,4 +1518,4 @@ entries:
     urls:
     - https://github.com/luiscajl/gitops-home-cluster/releases/download/plex-0.0.1/plex-0.0.1.tgz
     version: 0.0.1
-generated: "2021-06-23T18:04:35.284338602Z"
+generated: "2021-06-28T07:26:31.439011138Z"
