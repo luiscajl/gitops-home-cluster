@@ -36,7 +36,6 @@ securityContext:
   runAsNonRoot: true
   runAsUser: 1500
   runAsGroup: 3000
-  fsGroup: 2000
   privileged: true
 
 service:
@@ -47,6 +46,7 @@ ingress:
   enabled: true
   annotations: 
     nginx.ingress.kubernetes.io/proxy-body-size: 2000m
+    nginx.ingress.kubernetes.io/proxy-request-buffering: false
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
