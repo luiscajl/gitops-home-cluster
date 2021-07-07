@@ -49,8 +49,8 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: api.lavandadelpatio.es
-      paths: [ /feed-films ]
+    - host: lavandadelpatio.es
+      paths: [ /api/feed-films ]
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
