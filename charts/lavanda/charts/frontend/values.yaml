@@ -1,0 +1,65 @@
+replicaCount: 1
+image:
+  repository: lavandadelpatio/frontend:master
+  pullPolicy: Always
+  tag: "master"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 4000
+
+ingress:
+  enabled: true
+  annotations: 
+    nginx.ingress.kubernetes.io/auth-signin: "https://oauth2.lavandadelpatio.es/oauth2/start?rd=https://$host$request_uri$is_args$args"
+    nginx.ingress.kubernetes.io/auth-url: "http://oauth2-proxy.kubernetes-dashboard.svc.cluster.local:4180/oauth2/auth"
+    nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-User, X-Auth-Request-Email,X-Auth-Request-Preferred-Username,X-Auth-Request-Groups, Authorization, X-Forwarded-Email, X-Auth-Request-Access-Token, X-Auth-Request-Preferred-Username
+    cert-manager.io/cluster-issuer: letsencrypt-production
+  hosts:
+    - host: dashboard.lavandadelpatio.es
+      paths: [ / ]  
+  tls:
+    - hosts:
+        - dashboard.lavandadelpatio.es
+      secretName: new-aouth2-proxy
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: 
+  cputype: amd64
+
+tolerations: []
+
+affinity: {}
