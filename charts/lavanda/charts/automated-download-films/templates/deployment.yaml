@@ -69,9 +69,7 @@ spec:
                   name: rabbitmq
                   key: rabbitmq-password    
             - name: SPRING_RABBITMQ_HOST
-              value: rabbitmq       
-            - name: LOGGING_LEVEL_ROOT
-              value: DEBUG               
+              value: rabbitmq                    
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
