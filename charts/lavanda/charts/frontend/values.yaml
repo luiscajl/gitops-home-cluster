@@ -1,6 +1,6 @@
 replicaCount: 1
 image:
-  repository: lavandadelpatio/frontend:master
+  repository: lavandadelpatio/frontend
   pullPolicy: Always
   tag: "master"
 
