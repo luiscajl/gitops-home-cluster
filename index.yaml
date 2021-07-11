@@ -2,6 +2,15 @@ apiVersion: v1
 entries:
   elastictranscoder:
   - apiVersion: v2
+    created: "2021-07-11T15:32:18.753347469Z"
+    description: A Helm chart for Kubernetes
+    digest: ed1525433991dc75cdab547a331f6b8971452a1f76eb515215ed072986af98e9
+    name: elastictranscoder
+    type: application
+    urls:
+    - https://github.com/luiscajl/gitops-home-cluster/releases/download/elastictranscoder-0.42.0/elastictranscoder-0.42.0.tgz
+    version: 0.42.0
+  - apiVersion: v2
     created: "2021-07-11T15:26:57.003637732Z"
     description: A Helm chart for Kubernetes
     digest: 34996884d43616b45d21c15bd21178649fe69b759c7228c3eca4c4e0a0174f37
@@ -1779,4 +1788,4 @@ entries:
     urls:
     - https://github.com/luiscajl/gitops-home-cluster/releases/download/plex-0.0.1/plex-0.0.1.tgz
     version: 0.0.1
-generated: "2021-07-11T15:26:57.122488856Z"
+generated: "2021-07-11T15:32:18.754884419Z"
