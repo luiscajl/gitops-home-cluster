@@ -6,15 +6,7 @@ global:
     issuer: 
     clientId: 
     clientSecret:  
-media:
-  image:
-    tag: "a7bd5746"  
-media-storage:
-  image:
-    tag: "b41b1e73"  
-transcoder:
-  image:
-    tag: "cff96c5a"             
-transcoder-handler:
-  image:
-    tag: "ca499f59"  
+  nfs:
+    server:
+    path:
+            

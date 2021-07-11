@@ -8,7 +8,7 @@ image:
   repository: elastictranscoder/transcoder-handler
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "ca499f59"
 
 imagePullSecrets: []
 nameOverride: ""

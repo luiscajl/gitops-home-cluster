@@ -77,8 +77,9 @@ spec:
       {{- end }}
       volumes:
         - name: elastictranscoder-data
-          persistentVolumeClaim:
-            claimName: elastictranscoder-data
+          nfs:
+           server: {{ .Values.global.nfs.server }} 
+           path: {{ .Values.global.nfs.path }} 
       {{- with .Values.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
