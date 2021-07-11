@@ -2,6 +2,15 @@ apiVersion: v1
 entries:
   elastictranscoder:
   - apiVersion: v2
+    created: "2021-07-11T15:26:57.003637732Z"
+    description: A Helm chart for Kubernetes
+    digest: 34996884d43616b45d21c15bd21178649fe69b759c7228c3eca4c4e0a0174f37
+    name: elastictranscoder
+    type: application
+    urls:
+    - https://github.com/luiscajl/gitops-home-cluster/releases/download/elastictranscoder-0.41.0/elastictranscoder-0.41.0.tgz
+    version: 0.41.0
+  - apiVersion: v2
     created: "2021-07-11T11:57:06.834017262Z"
     description: A Helm chart for Kubernetes
     digest: 539ebe93558a430e7ecb9003734973841afd50c15f1dda8aba19bb567353a150
@@ -362,6 +371,15 @@ entries:
     - https://github.com/luiscajl/gitops-home-cluster/releases/download/elastictranscoder-0.1.0/elastictranscoder-0.1.0.tgz
     version: 0.1.0
   lavanda:
+  - apiVersion: v2
+    created: "2021-07-11T15:26:57.1198204Z"
+    description: Helm chart for lavanda kubernetes cluster
+    digest: cfa1ed01720b760bf15eb295d888098186b965304434b921d80f68eb0f79e50c
+    name: lavanda
+    type: application
+    urls:
+    - https://github.com/luiscajl/gitops-home-cluster/releases/download/lavanda-0.0.98/lavanda-0.0.98.tgz
+    version: 0.0.98
   - apiVersion: v2
     created: "2021-07-11T10:17:44.099036017Z"
     description: Helm chart for lavanda kubernetes cluster
@@ -1761,4 +1779,4 @@ entries:
     urls:
     - https://github.com/luiscajl/gitops-home-cluster/releases/download/plex-0.0.1/plex-0.0.1.tgz
     version: 0.0.1
-generated: "2021-07-11T11:57:06.835500192Z"
+generated: "2021-07-11T15:26:57.122488856Z"
