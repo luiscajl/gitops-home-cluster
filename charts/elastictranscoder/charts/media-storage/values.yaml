@@ -36,6 +36,8 @@ ingress:
     nginx.ingress.kubernetes.io/auth-response-headers: Authorization 
     nginx.ingress.kubernetes.io/proxy-body-size: 2000m
     cert-manager.io/cluster-issuer: letsencrypt-production
+    nginx.ingress.kubernetes.io/auth-snippet: |
+      proxy_method $request_method;
   hosts:
     - host: files.lavandadelpatio.es
       paths:
