@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: elastictranscoder/media-storage
   pullPolicy: IfNotPresent
-  tag: "b41b1e73"
+  tag: "6fcc703e"
 
 imagePullSecrets: []
 nameOverride: ""
