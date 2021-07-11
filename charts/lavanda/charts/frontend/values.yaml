@@ -31,7 +31,7 @@ ingress:
     # cert-manager.io/cluster-issuer: letsencrypt-production
   hosts:
     - host: lavandadelpatio.es
-      paths: [ /v2/ ]  
+      paths: [ / ]  
   # tls:
     # - hosts:
         # - dashboard.lavandadelpatio.es
