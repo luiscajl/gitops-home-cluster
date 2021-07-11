@@ -28,14 +28,14 @@ ingress:
   annotations: 
     nginx.ingress.kubernetes.io/auth-signin: "https://oauth2.lavandadelpatio.es/oauth2/start?rd=https://$host$request_uri$is_args$args"
     nginx.ingress.kubernetes.io/auth-url: "http://oauth2-proxy.kubernetes-dashboard.svc.cluster.local:4180/oauth2/auth"
-    cert-manager.io/cluster-issuer: letsencrypt-production
+    # cert-manager.io/cluster-issuer: letsencrypt-production
   hosts:
-    - host: dashboard.lavandadelpatio.es
-      paths: [ / ]  
-  tls:
-    - hosts:
-        - dashboard.lavandadelpatio.es
-      secretName: new-aouth2-proxy
+    - host: lavandadelpatio.es
+      paths: [ /v2 ]  
+  # tls:
+    # - hosts:
+        # - dashboard.lavandadelpatio.es
+      # secretName: new-aouth2-proxy
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
