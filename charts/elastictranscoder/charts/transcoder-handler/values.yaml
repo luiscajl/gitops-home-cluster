@@ -1,13 +1,8 @@
-# Default values for transcoder-handler.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
 replicaCount: 1
 
 image:
   repository: elastictranscoder/transcoder-handler
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
   tag: "6fcc703e"
 
 imagePullSecrets: []

@@ -35,11 +35,15 @@ ingress:
     nginx.ingress.kubernetes.io/auth-url: "http://oauth2-proxy.kubernetes-dashboard.svc.cluster.local:4180/oauth2/auth"
     nginx.ingress.kubernetes.io/auth-response-headers: Authorization 
     nginx.ingress.kubernetes.io/proxy-body-size: 2000m
+    cert-manager.io/cluster-issuer: letsencrypt-production
   hosts:
     - host: files.lavandadelpatio.es
       paths:
       - path: /files
-  tls: []
+  tls: 
+    - hosts:
+        - files.lavandadelpatio.es
+      secretName: files-tls
 
 resources: {}
   # limits:
@@ -60,16 +64,6 @@ nodeSelector: {}
 
 tolerations: []
 
-affinity: 
-  podAffinity:
-    preferredDuringSchedulingIgnoredDuringExecution:
-    - weight: 99
-      podAffinityTerm:
-        labelSelector:
-          matchExpressions:
-          - key: app.kubernetes.io/name
-            operator: In
-            values:
-            - "media"
-        topologyKey: kubernetes.io/hostname
+affinity: {}
+ 
 
