@@ -30,4 +30,4 @@ spec:
                 path: /media/Externo8TB_2
             - name: filebot-config
               persistentVolumeClaim:
-                claimName: filebot-config
+                claimName: filebot-config-rwm

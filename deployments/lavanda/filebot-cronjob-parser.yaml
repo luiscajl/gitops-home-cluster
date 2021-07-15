@@ -47,4 +47,4 @@ spec:
           volumes:
             - name: filebot-config
               persistentVolumeClaim:
-                claimName: filebot-config
+                claimName: filebot-config-rwm
