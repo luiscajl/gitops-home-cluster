@@ -5,8 +5,8 @@ metadata:
   namespace: lavanda
 spec:
   schedule: "@hourly"
-  successfulJobsHistoryLimit: 3
-  failedJobsHistoryLimit: 3
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
   jobTemplate:
     spec:
       template:
@@ -28,7 +28,7 @@ spec:
                   name: filebot-media
                 - mountPath: /data
                   name: filebot-config
-          restartPolicy: Never
+          restartPolicy: OnFailure
           nodeSelector:
             cputype: amd64
           volumes:

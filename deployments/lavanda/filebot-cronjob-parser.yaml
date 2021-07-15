@@ -5,15 +5,15 @@ metadata:
   namespace: lavanda
 spec:
   schedule: "@hourly"
-  successfulJobsHistoryLimit: 3
-  failedJobsHistoryLimit: 3
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
   jobTemplate:
     spec:
       template:
         spec:
           containers:
             - name: filebot-parser
-              image: lavandadelpatio/filebot-parser:0.0.2
+              image: lavandadelpatio/filebot-parser:0.0.4
               imagePullPolicy: IfNotPresent
               env:
                 - name: SPRING_DATA_MONGODB_URI
@@ -25,13 +25,23 @@ spec:
                   value: pro     
                 - name: FILEBOT_PATH
                   value: /data/.reports
+                - name: AWS_ACCESS_KEY_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: aws-credentials
+                      key: aws-access-key-id                
+                - name: AWS_SECRET_ACCESS_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: aws-credentials
+                      key: aws-access-secret-key   
               securityContext:
                 runAsUser: 1000
                 runAsGroup: 1000
               volumeMounts:
                 - mountPath: /data
                   name: filebot-config
-          restartPolicy: Never
+          restartPolicy: OnFailure
           nodeSelector:
             cputype: amd64
           volumes:
