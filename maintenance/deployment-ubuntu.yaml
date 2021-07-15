@@ -2,12 +2,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ubuntu-deployment
-  namespace: test
+  namespace: lavanda
 spec:
   selector:
     matchLabels:
       app: ubuntu
-  replicas: 0
+  replicas: 1
   template:
     metadata:
       labels:
@@ -17,3 +17,12 @@ spec:
         - name: ubuntu
           image: ubuntu
           command: ["sleep", "123456"]
+          volumeMounts:
+           - mountPath: /data
+             name: filebot-config     
+      nodeSelector:
+        cputype: amd64
+      volumes:
+        - name: filebot-config
+          persistentVolumeClaim:
+            claimName: filebot-config-rwm      
