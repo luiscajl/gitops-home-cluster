@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: filebot-maintenance
+  namespace: lavanda  
+ 
+spec:
+  selector:
+    matchLabels:
+      app: filebot-maintenance
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: filebot-maintenance
+    spec:
+      containers:
+        - name: filebot-maintenance
+          image: rednoah/filebot
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/sleep", "3650d"]
+          volumeMounts:
+            - mountPath: /media
+              name: filebot-media
+            - mountPath: /data
+              name: filebot-config
+      nodeSelector:
+        cputype: amd64
+      volumes:
+        - name: filebot-media
+          nfs:
+            server: 10.10.120.50
+            path: /media/Externo8TB_2
+        - name: filebot-config
+          persistentVolumeClaim:
+            claimName: filebot-config-rwm
