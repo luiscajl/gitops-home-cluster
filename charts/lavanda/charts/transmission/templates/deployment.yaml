@@ -54,6 +54,7 @@ spec:
             periodSeconds: 60
             successThreshold: 1
             failureThreshold: 5
+            timeoutSeconds: 10
           readinessProbe:
             httpGet:
               path: /transmission/web/
@@ -63,7 +64,7 @@ spec:
                   value: Basic {{ (printf "%s:%s" .Values.global.transmission.user .Values.global.transmission.password | b64enc) }}
               scheme: HTTP
             initialDelaySeconds: 10
-            timeoutSeconds: 5
+            timeoutSeconds: 10
             periodSeconds: 5
             successThreshold: 1
             failureThreshold: 5    
