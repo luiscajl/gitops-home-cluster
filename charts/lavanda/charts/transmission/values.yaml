@@ -24,10 +24,12 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -41,18 +43,20 @@ service:
 
 ingress:
   enabled: true
-  annotations: {}
+  annotations:
+    {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
     - host: transmission.lavandadelpatio.es
-      paths: [ / ]
+      paths: [/]
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
 
-resources: {}
+resources:
+  {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -71,9 +75,20 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
-nodeSelector: 
+nodeSelector:
   cputype: amd64
 
 tolerations: []
 
-affinity: {}
+affinity:
+  podAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 99
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                  - "lavanda-transmission"
+          topologyKey: kubernetes.io/hostname
