@@ -90,5 +90,5 @@ affinity:
               - key: app.kubernetes.io/name
                 operator: In
                 values:
-                  - "lavanda-transmission"
+                  - "transmission"
           topologyKey: kubernetes.io/hostname
