@@ -65,10 +65,20 @@ spec:
             httpGet:
               path: /identity
               port: 32400
+            initialDelaySeconds: 15  
+            periodSeconds: 5
+            timeoutSeconds: 5
+            failureThreshold: 6
+            successThreshold: 1  
           readinessProbe:
             httpGet:
               path: /identity
               port: 32400
+            initialDelaySeconds: 15  
+            periodSeconds: 5
+            timeoutSeconds: 5
+            failureThreshold: 3
+            successThreshold: 1   
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
