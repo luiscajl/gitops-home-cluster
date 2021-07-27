@@ -40,11 +40,11 @@ ingress:
     #   auth_request_set $auth_cookie $upstream_http_set_cookie;
     #   add_header Set-Cookie $auth_cookie;
     nginx.ingress.kubernetes.io/configuration-snippet: |
-      auth_request_set $name_upstream_1 $upstream_cookie_name_1;
+      auth_request_set $name_upstream_1 $upstream_cookie__oauth2_proxy_1;
     
       access_by_lua_block {
         if ngx.var.name_upstream_1 ~= "" then
-          ngx.header["Set-Cookie"] = "name_1=" .. ngx.var.name_upstream_1 .. ngx.var.auth_cookie:match("(; .*)")
+          ngx.header["Set-Cookie"] = "_oauth2_proxy_1=" .. ngx.var.name_upstream_1 .. ngx.var.auth_cookie:match("(; .*)")
         end
       }  
   hosts:
