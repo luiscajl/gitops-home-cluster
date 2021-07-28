@@ -27,3 +27,6 @@ tmdb:
 frontend:
   image:
     tag: "master"
+lavanda-filebot:
+  image:
+    tag: "0.0.8"
