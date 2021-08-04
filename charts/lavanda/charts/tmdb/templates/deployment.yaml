@@ -36,6 +36,8 @@ spec:
           env:
             - name: SPRING_RABBITMQ_USERNAME
               value: user
+            - name: SPRING_PROFILES_ACTIVE
+              value: pro
             - name: SPRING_RABBITMQ_PASSWORD
               valueFrom:
                 secretKeyRef:
